@@ -10,7 +10,7 @@ public record EmpresaDTO(
         @NotBlank
         String cnpjEmpresa,
 
-        String cep
+        String cepEmpresa
         ) {
 //    public EmpresaDTO(Empresa empresa) {
 //        this(empresa.getNomeEmpresa(), empresa.getSedeEmpresa(), empresa.getCnpjEmpresa());

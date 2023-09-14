@@ -29,7 +29,7 @@ public class EmpresaController {
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid EmpresaDTO dto) {
 
-        var endereco = enderecoService.cadastrar(dto.cep());
+        var endereco = enderecoService.cadastrar(dto.cepEmpresa());
 
         var empresa = new Empresa(dto, endereco);
 
@@ -37,14 +37,6 @@ public class EmpresaController {
 
         return ResponseEntity.ok(new EmpresaDTODetalhamento(empresa));
     }
-
-//    @GetMapping
-//    public ResponseEntity<Page<EmpresaDTODetalhamento>> listar(@PageableDefault(size = 10, sort = {"nomeEmpresa"}) Pageable paginacao) {
-//
-//        var page = empresaRepository.findAll(paginacao).map(EmpresaDTODetalhamento::new);
-//
-//        return ResponseEntity.ok(page);
-//    }
 
     @GetMapping
     public ResponseEntity listar(){

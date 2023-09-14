@@ -16,7 +16,7 @@ public record EmpresaDTODetalhamento(
         @NotBlank
         String cnpjEmpresa,
 
-        EnderecoDTO endereco) {
+        EnderecoDTO enderecoEmpresa) {
 
         public EmpresaDTODetalhamento(Empresa empresa){
             this(empresa.getId(), empresa.getNomeEmpresa(), empresa.getCnpjEmpresa(),
