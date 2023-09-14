@@ -22,16 +22,15 @@ public class Empresa {
 
     private String nomeEmpresa;
 
-    private String sedeEmpresa;
-
     private String cnpjEmpresa;
 
+    @ManyToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
-    public Empresa(EmpresaDTO dto, EnderecoDTO enderecoDTO) {
+    public Empresa(EmpresaDTO dto, Endereco endereco) {
         this.nomeEmpresa = dto.nomeEmpresa();
-        this.sedeEmpresa = dto.sedeEmpresa();
         this.cnpjEmpresa = dto.cnpjEmpresa();
-        this.endereco = new Endereco(enderecoDTO);
+        this.endereco = endereco;
     }
 }

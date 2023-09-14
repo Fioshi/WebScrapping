@@ -1,12 +1,23 @@
 package com.heinz.heinz.model.endereco;
 
-public record EnderecoDTO(
-        String logradouro,
+import jakarta.validation.constraints.NotBlank;
 
+public record EnderecoDTO(
+
+        @NotBlank
         String cep,
 
+        @NotBlank
+        String logradouro,
+
+        @NotBlank
         String bairro,
-        String localidade,
-        String numero
+
+        @NotBlank
+        String localidade
+
 ) {
+    public EnderecoDTO(Endereco endereco) {
+        this(endereco.getCep(), endereco.getLogradouro(), endereco.getBairro(), endereco.getLocalidade());
+    }
 }

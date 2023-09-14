@@ -8,9 +8,6 @@ public record EmpresaDTO(
         String nomeEmpresa,
 
         @NotBlank
-        String sedeEmpresa,
-
-        @NotBlank
         String cnpjEmpresa,
 
         String cep

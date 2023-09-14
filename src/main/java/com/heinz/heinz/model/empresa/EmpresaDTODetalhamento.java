@@ -1,6 +1,7 @@
 package com.heinz.heinz.model.empresa;
 
 import com.heinz.heinz.model.endereco.Endereco;
+import com.heinz.heinz.model.endereco.EnderecoDTO;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,15 +14,13 @@ public record EmpresaDTODetalhamento(
         String nomeEmpresa,
 
         @NotBlank
-        String sedeEmpresa,
-
-        @NotBlank
         String cnpjEmpresa,
 
-        Endereco endereco) {
+        EnderecoDTO endereco) {
 
         public EmpresaDTODetalhamento(Empresa empresa){
-            this(empresa.getId(), empresa.getNomeEmpresa(), empresa.getSedeEmpresa(), empresa.getNomeEmpresa(), empresa.getEndereco());
+            this(empresa.getId(), empresa.getNomeEmpresa(), empresa.getCnpjEmpresa(),
+                    new EnderecoDTO(empresa.getEndereco()));
         }
 
 }

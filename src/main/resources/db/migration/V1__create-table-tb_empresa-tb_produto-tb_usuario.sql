@@ -1,8 +1,8 @@
 create table tb_empresa (
 
     id bigint not null auto_increment,
+    endereco_id bigint not null,
     nome_empresa varchar(50) not null,
-    sede_empresa varchar(50) not null,
     cnpj_empresa varchar(50) not null,
 
     primary key (id)

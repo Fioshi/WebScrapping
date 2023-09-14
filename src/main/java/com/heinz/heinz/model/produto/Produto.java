@@ -31,6 +31,7 @@ public class Produto {
     private Double notaProduto;
 
     @ManyToOne
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
 
