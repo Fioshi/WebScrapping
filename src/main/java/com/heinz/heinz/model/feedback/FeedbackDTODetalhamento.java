@@ -8,8 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public record FeedbackDTODetalhamento(
-        @NotNull
-        LocalDate dataFeedback,
 
         @NotBlank
         String textoFeedback,
@@ -19,6 +17,6 @@ public record FeedbackDTODetalhamento(
         Usuario usuario ) {
 
         public FeedbackDTODetalhamento(Feedback feedback) {
-            this(feedback.getDataFeedback(), feedback.getTextoFeedback(), feedback.getProduto(), feedback.getUsuario());
+            this( feedback.getTextoFeedback(), feedback.getProduto(), feedback.getUsuario());
         }
 }

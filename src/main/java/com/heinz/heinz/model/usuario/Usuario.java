@@ -29,7 +29,6 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Sexo sexoUsuario;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate nascimentoUsuario;
 
     public Usuario(UsuarioDTO dto) {

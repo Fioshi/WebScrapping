@@ -6,14 +6,14 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public record FeedbackDTO(
-        @NotNull
-        LocalDate dataFeedback,
 
         @NotBlank
         String textoFeedback,
 
+        @NotNull
         Long idProduto,
 
+        @NotNull
         Long idUsuario
         ) {
 }

@@ -27,7 +27,7 @@ create table tb_usuario (
     id bigint not null auto_increment,
     nome_usuario varchar(50) not null,
     email_usuario varchar(50) not null,
-    sexo_usuario varchar(1) not null,
+    sexo_usuario varchar(10) not null,
     nascimento_usuario Date not null,
 
     primary key (id)

@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_feedback")
@@ -20,17 +21,26 @@ public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idFeedback;
+    private Long id;
 
-    private LocalDate dataFeedback;
+    private LocalDateTime dataFeedback;
 
     private String textoFeedback;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
+    @Column(name = "usuario_id")
     private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "produto_id")
+    @Column(name = "produto_id")
     private Produto produto;
+
+    public Feedback(FeedbackDTO dto, Produto produto, Usuario usuario) {
+        this.dataFeedback = LocalDateTime.now();
+        this.textoFeedback = dto.textoFeedback();
+        this.usuario = usuario;
+        this.produto = produto;
+    }
 }

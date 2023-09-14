@@ -1,17 +1,19 @@
 package com.heinz.heinz.controller;
 
+import com.heinz.heinz.model.empresa.Empresa;
+import com.heinz.heinz.model.empresa.EmpresaDTODetalhamentoGet;
 import com.heinz.heinz.model.empresa.EmpresaRepository;
 import com.heinz.heinz.model.produto.Produto;
 import com.heinz.heinz.model.produto.ProdutoDTO;
+import com.heinz.heinz.model.produto.ProdutoDTODetalhamento;
 import com.heinz.heinz.model.produto.ProdutoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.LinkedList;
 
 @RestController
 @RequestMapping("/api/produto")
@@ -32,7 +34,22 @@ public class ProdutoController {
 
         produtoRepository.save(produto);
 
-        return ResponseEntity.ok(new ProdutoDTO(produto));
+        return ResponseEntity.ok(new ProdutoDTODetalhamento(produto));
+    }
+
+    @GetMapping
+    public ResponseEntity listar(){
+
+        var listProduto = produtoRepository.findAll();
+        LinkedList listDTO = new LinkedList();
+
+        for (Produto prod:
+                listProduto) {
+            var dto = new ProdutoDTODetalhamento(prod);
+            listDTO.add(dto);
+        }
+
+        return ResponseEntity.ok(listDTO);
     }
 
 
