@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/api/empresa")
 public class EmpresaController {
 
     @Autowired
@@ -49,15 +49,15 @@ public class EmpresaController {
     @GetMapping
     public ResponseEntity listar(){
 
-        var list = empresaRepository.findAll();
-        LinkedList list1 = new LinkedList();
+        var listEmpresa = empresaRepository.findAll();
+        LinkedList listDTO = new LinkedList();
 
         for (Empresa emp:
-             list) {
+             listEmpresa) {
             var dto = new EmpresaDTODetalhamentoGet(emp);
+            listDTO.add(dto);
         }
 
-
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(listDTO);
     }
 }

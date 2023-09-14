@@ -1,6 +1,11 @@
 package com.heinz.heinz.model.empresa;
 
-public class EmpresaDTODetalhamentoGet {
-    public EmpresaDTODetalhamentoGet(Empresa emp) {
-    }
+public record EmpresaDTODetalhamentoGet(
+        Long id,
+
+        String nomeEmpresa
+) {
+        public EmpresaDTODetalhamentoGet(Empresa empresa){
+            this(empresa.getId(), empresa.getNomeEmpresa());
+        }
 }
