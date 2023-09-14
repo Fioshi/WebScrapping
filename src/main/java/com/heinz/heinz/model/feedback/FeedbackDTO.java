@@ -10,11 +10,12 @@ public record FeedbackDTO(
         LocalDate dataFeedback,
 
         @NotBlank
-        String textoFeedback) {
+        String textoFeedback,
 
-        public FeedbackDTO (Feedback feedback){
-                this(feedback.getDataFeedback(), feedback.getTextoFeedback());
-        }
+        Long idProduto,
+
+        Long idUsuario
+        ) {
 }
 
 

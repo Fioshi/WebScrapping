@@ -11,8 +11,11 @@ public record EmpresaDTO(
         String sedeEmpresa,
 
         @NotBlank
-        String cnpjEmpresa) {
-    public EmpresaDTO(Empresa empresa) {
-        this(empresa.getNomeEmpresa(), empresa.getSedeEmpresa(), empresa.getCnpjEmpresa());
-    }
+        String cnpjEmpresa,
+
+        String cep
+        ) {
+//    public EmpresaDTO(Empresa empresa) {
+//        this(empresa.getNomeEmpresa(), empresa.getSedeEmpresa(), empresa.getCnpjEmpresa());
+//    }
 }

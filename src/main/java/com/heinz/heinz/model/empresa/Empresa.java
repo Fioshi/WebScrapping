@@ -1,5 +1,7 @@
 package com.heinz.heinz.model.empresa;
 
+import com.heinz.heinz.model.endereco.Endereco;
+import com.heinz.heinz.model.endereco.EnderecoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -24,9 +26,12 @@ public class Empresa {
 
     private String cnpjEmpresa;
 
-    public Empresa(EmpresaDTO dto) {
+    private Endereco endereco;
+
+    public Empresa(EmpresaDTO dto, EnderecoDTO enderecoDTO) {
         this.nomeEmpresa = dto.nomeEmpresa();
         this.sedeEmpresa = dto.sedeEmpresa();
         this.cnpjEmpresa = dto.cnpjEmpresa();
+        this.endereco = new Endereco(enderecoDTO);
     }
 }
