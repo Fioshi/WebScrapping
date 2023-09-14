@@ -22,7 +22,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate dtFrabricacaoProduto;
+    private LocalDate dtCadastro;
 
     private String nomeProduto;
 
@@ -35,11 +35,12 @@ public class Produto {
     private Empresa empresa;
 
 
-    public Produto(ProdutoDTO dto){
-        this.dtFrabricacaoProduto = dto.dtFrabricacaoProduto();
+    public Produto(ProdutoDTO dto, Empresa empresa){
+        this.dtCadastro = LocalDate.now();
         this.nomeProduto = dto.nomeProduto();
         this.precoProduto = dto.precoProduto();
-        this.notaProduto = dto.notaProduto();
+        this.notaProduto = 0.0;
+        this.empresa = empresa;
     }
 
 

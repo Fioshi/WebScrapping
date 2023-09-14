@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public record ProdutoDTO(
-        @NotNull
-        LocalDate dtFrabricacaoProduto,
 
         @NotBlank
         String nomeProduto,
@@ -16,9 +14,10 @@ public record ProdutoDTO(
         Double precoProduto,
 
         @NotNull
-        Double notaProduto) {
+        Long idEmpresa
+) {
 
     public ProdutoDTO(Produto produto){
-        this(produto.getDtFrabricacaoProduto(), produto.getNomeProduto(), produto.getPrecoProduto(), produto.getNotaProduto());
+        this(produto.getNomeProduto(), produto.getPrecoProduto(), produto.getEmpresa().getId());
     }
 }

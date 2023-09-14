@@ -13,7 +13,7 @@ create table tb_produto (
 
     id bigint not null auto_increment,
     empresa_id bigint not null,
-    data_fabricação_produto Date not null,
+    dt_cadastro Date not null,
     nome_produto varchar(50) not null,
     preco_produto double not null,
     nota_produto double not null,
