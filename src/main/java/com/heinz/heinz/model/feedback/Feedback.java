@@ -1,5 +1,6 @@
 package com.heinz.heinz.model.feedback;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.heinz.heinz.model.produto.Produto;
 import com.heinz.heinz.model.usuario.Usuario;
 import jakarta.persistence.*;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "idFeedback")
+@EqualsAndHashCode(of = "id")
 public class Feedback {
 
     @Id
@@ -27,14 +28,12 @@ public class Feedback {
 
     private String textoFeedback;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
-    @Column(name = "usuario_id")
     private Usuario usuario;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "produto_id")
-    @Column(name = "produto_id")
     private Produto produto;
 
     public Feedback(FeedbackDTO dto, Produto produto, Usuario usuario) {

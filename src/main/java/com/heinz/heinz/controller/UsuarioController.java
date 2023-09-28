@@ -2,6 +2,7 @@ package com.heinz.heinz.controller;
 
 import com.heinz.heinz.model.usuario.Usuario;
 import com.heinz.heinz.model.usuario.UsuarioDTO;
+import com.heinz.heinz.model.usuario.UsuarioDTODetalhamento;
 import com.heinz.heinz.model.usuario.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,8 +16,4 @@ public record ProdutoDTO(
         @NotNull
         Long idEmpresa
 ) {
-
-    public ProdutoDTO(Produto produto){
-        this(produto.getNomeProduto(), produto.getPrecoProduto(), produto.getEmpresa().getId());
-    }
 }

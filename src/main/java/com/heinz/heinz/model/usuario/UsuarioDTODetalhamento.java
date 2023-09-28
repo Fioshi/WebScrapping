@@ -1,4 +1,4 @@
-package com.heinz.heinz.controller;
+package com.heinz.heinz.model.usuario;
 
 import com.heinz.heinz.model.usuario.Sexo;
 import com.heinz.heinz.model.usuario.Usuario;
@@ -12,11 +12,7 @@ public record UsuarioDTODetalhamento(
 
         Sexo sexo
 ) {
-
     public UsuarioDTODetalhamento(Usuario usuario){
         this(usuario.getId(), usuario.getNomeUsuario(), usuario.getEmailUsuario(), usuario.getSexoUsuario());
     }
-
-
-
 }

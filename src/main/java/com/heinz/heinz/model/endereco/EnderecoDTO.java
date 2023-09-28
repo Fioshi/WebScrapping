@@ -17,7 +17,7 @@ public record EnderecoDTO(
         String localidade
 
 ) {
-    public EnderecoDTO(Endereco endereco) {
-        this(endereco.getCep(), endereco.getLogradouro(), endereco.getBairro(), endereco.getLocalidade());
-    }
+        public EnderecoDTO(Endereco endereco) {
+                this(endereco.getCep(), endereco.getLogradouro(), endereco.getBairro(), endereco.getLocalidade());
+        }
 }

@@ -17,6 +17,6 @@ public record FeedbackDTODetalhamento(
         Usuario usuario ) {
 
         public FeedbackDTODetalhamento(Feedback feedback) {
-            this( feedback.getTextoFeedback(), feedback.getProduto(), feedback.getUsuario());
+                this(feedback.getTextoFeedback(), feedback.getProduto(),feedback.getUsuario());
         }
 }

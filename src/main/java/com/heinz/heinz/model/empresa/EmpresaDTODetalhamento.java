@@ -17,10 +17,7 @@ public record EmpresaDTODetalhamento(
         String cnpjEmpresa,
 
         EnderecoDTO enderecoEmpresa) {
-
         public EmpresaDTODetalhamento(Empresa empresa){
-            this(empresa.getId(), empresa.getNomeEmpresa(), empresa.getCnpjEmpresa(),
-                    new EnderecoDTO(empresa.getEndereco()));
+                this(empresa.getId(), empresa.getNomeEmpresa(), empresa.getCnpjEmpresa(), new EnderecoDTO(empresa.getEndereco()));
         }
-
 }

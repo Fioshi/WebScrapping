@@ -5,7 +5,7 @@ public record EmpresaDTODetalhamentoGet(
 
         String nomeEmpresa
 ) {
-        public EmpresaDTODetalhamentoGet(Empresa empresa){
-            this(empresa.getId(), empresa.getNomeEmpresa());
-        }
+    public EmpresaDTODetalhamentoGet(Empresa empresa){
+        this(empresa.getId(), empresa.getNomeEmpresa());
+    }
 }
