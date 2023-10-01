@@ -13,7 +13,6 @@ public record FeedbackDTO(
         @NotNull
         Long idProduto,
 
-        @NotNull
         Long idUsuario
         ) {
 }

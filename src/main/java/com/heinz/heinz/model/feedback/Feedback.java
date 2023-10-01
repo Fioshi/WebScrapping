@@ -2,6 +2,7 @@ package com.heinz.heinz.model.feedback;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.heinz.heinz.model.produto.Produto;
+import com.heinz.heinz.model.scraper.Analise;
 import com.heinz.heinz.model.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,5 +42,12 @@ public class Feedback {
         this.textoFeedback = dto.textoFeedback();
         this.usuario = usuario;
         this.produto = produto;
+    }
+
+    public Feedback(Analise analise) {
+        this.dataFeedback = LocalDateTime.now();
+        this.textoFeedback = analise.getText();
+        this.usuario = null;
+        this.produto = analise.getProduto();
     }
 }

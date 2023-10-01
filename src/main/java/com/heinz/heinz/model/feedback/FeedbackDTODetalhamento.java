@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public record FeedbackDTODetalhamento(
 
-        @NotBlank
+
         String textoFeedback,
 
         Produto produto,
