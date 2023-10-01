@@ -41,7 +41,7 @@ public class FeedbackController {
 
         feedbackRepository.save(feedback);
 
-        return ResponseEntity.ok(new FeedbackDTODetalhamento(feedback));
+        return ResponseEntity.ok().build();
     }
 
 
