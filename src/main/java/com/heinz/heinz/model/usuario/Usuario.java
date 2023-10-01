@@ -37,4 +37,8 @@ public class Usuario {
         this.sexoUsuario = dto.sexoUsuario();
         this.nascimentoUsuario = dto.nascimentoUsuario();
     }
+
+    public Usuario(String nome) {
+        this.nomeUsuario = nome;
+    }
 }
