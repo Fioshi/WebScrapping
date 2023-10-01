@@ -3,6 +3,8 @@ package com.heinz.heinz.controller;
 import com.heinz.heinz.model.empresa.Empresa;
 import com.heinz.heinz.model.empresa.EmpresaDTODetalhamentoGet;
 import com.heinz.heinz.model.empresa.EmpresaRepository;
+import com.heinz.heinz.model.feedback.Feedback;
+import com.heinz.heinz.model.feedback.FeedbackRepository;
 import com.heinz.heinz.model.produto.Produto;
 import com.heinz.heinz.model.produto.ProdutoDTO;
 import com.heinz.heinz.model.produto.ProdutoDTODetalhamento;
@@ -24,6 +26,10 @@ public class ProdutoController {
 
     @Autowired
     EmpresaRepository empresaRepository;
+
+    @Autowired
+    FeedbackRepository feedbackRepository;
+
 
     @PostMapping
     @Transactional
@@ -51,6 +57,5 @@ public class ProdutoController {
 
         return ResponseEntity.ok(listDTO);
     }
-
 
 }

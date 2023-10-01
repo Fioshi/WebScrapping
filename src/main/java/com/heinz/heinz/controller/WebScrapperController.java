@@ -1,5 +1,7 @@
 package com.heinz.heinz.controller;
 
+import com.heinz.heinz.model.feedback.Feedback;
+import com.heinz.heinz.model.feedback.FeedbackRepository;
 import com.heinz.heinz.model.produto.Produto;
 import com.heinz.heinz.model.produto.ProdutoRepository;
 import com.heinz.heinz.model.scraper.Analise;
@@ -32,6 +34,9 @@ public class WebScrapperController {
     @Autowired
     ProdutoRepository produtoRepository;
 
+    @Autowired
+    FeedbackRepository feedbackRepository;
+
     @PostMapping
     @Transactional
     @Async
@@ -61,22 +66,24 @@ public class WebScrapperController {
 
             if (nomeAux.contains(Produtos.KETCHUP.name().toLowerCase())) {
                 var produto = produtoRepository.getReferenceNome(Produtos.KETCHUP.name().toLowerCase());
-                analise = new Analise(text, title, Produtos.KETCHUP.name().toLowerCase(), produto.getId());
+                analise = new Analise(text, title, Produtos.KETCHUP.name().toLowerCase(), produto);
             }
 
            if (nomeAux.contains(Produtos.MOSTARDA.name().toLowerCase())) {
                var produto = produtoRepository.getReferenceNome(Produtos.MOSTARDA.name().toLowerCase());
-               analise = new Analise(text, title, Produtos.MOSTARDA.name().toLowerCase(), produto.getId());
+               analise = new Analise(text, title, Produtos.MOSTARDA.name().toLowerCase(), produto);
            }
 
             if (nomeAux.contains(Produtos.MAIONESE.name().toLowerCase())) {
                 var produto = produtoRepository.getReferenceNome(Produtos.MAIONESE.name().toLowerCase());
-                analise = new Analise(text, title, Produtos.MAIONESE.name().toLowerCase(), produto.getId());
+                analise = new Analise(text, title, Produtos.MAIONESE.name().toLowerCase(), produto);
             }
+
+            feedbackRepository.save(new Feedback(analise));
 
             analises.add(analise);
         }
-        return ResponseEntity.ok(analises);
+        return ResponseEntity.ok().build();
     }
 }
 
