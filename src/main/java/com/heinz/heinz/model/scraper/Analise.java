@@ -13,6 +13,4 @@ public class Analise {
 
     String Tittle;
 
-    String stars;
-
 }

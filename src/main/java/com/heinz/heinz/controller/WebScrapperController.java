@@ -36,7 +36,6 @@ public class WebScrapperController {
         // Seleciona todas as tags <span> na página
         Elements spanText = document.select("span.review-text");
         Elements spanTitle = document.select("a.review-title");
-        Elements spanStars = document.select("span.a-icon-alt");
 
         List<Analise> analises = new LinkedList<>();
 
@@ -45,10 +44,8 @@ public class WebScrapperController {
             System.out.println(i);
             String text = spanText.get(i).text();
             String title = spanTitle.get(i).text();
-//            String stars = spanStars.get(i).text();
-            var stars = "1";
 //            var title = "Bom";
-            var analise = new Analise(text,title,stars);
+            var analise = new Analise(text,title);
 
             analises.add(analise);
         }
