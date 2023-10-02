@@ -27,9 +27,6 @@ public class ProdutoController {
     @Autowired
     EmpresaRepository empresaRepository;
 
-    @Autowired
-    FeedbackRepository feedbackRepository;
-
 
     @PostMapping
     @Transactional

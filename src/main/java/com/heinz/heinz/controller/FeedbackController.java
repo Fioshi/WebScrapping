@@ -40,4 +40,12 @@ public class FeedbackController {
 
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity pegarUm(@PathVariable Long id){
+
+        var feedbackList = feedbackRepository.getReferenceById(id);
+
+        return ResponseEntity.ok(feedbackList);
+    }
 }
