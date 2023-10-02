@@ -41,4 +41,11 @@ public class Usuario {
     public Usuario(String nome) {
         this.nomeUsuario = nome;
     }
+
+    public Usuario(String web, String mail, Sexo sexo, LocalDate now) {
+        this.nomeUsuario = web;
+        this.emailUsuario = mail;
+        this.sexoUsuario = sexo;
+        this.nascimentoUsuario = now;
+    }
 }

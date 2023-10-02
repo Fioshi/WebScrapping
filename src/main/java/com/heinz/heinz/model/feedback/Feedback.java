@@ -47,7 +47,7 @@ public class Feedback {
     public Feedback(Analise analise) {
         this.dataFeedback = LocalDateTime.now();
         this.textoFeedback = analise.getText();
-        this.usuario = null;
+        this.usuario = analise.getUsuario();
         this.produto = analise.getProduto();
     }
 }

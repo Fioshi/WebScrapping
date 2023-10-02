@@ -1,6 +1,7 @@
 package com.heinz.heinz.model.scraper;
 
 import com.heinz.heinz.model.produto.Produto;
+import com.heinz.heinz.model.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,8 @@ public class Analise {
     String nome;
 
     Produto produto;
+
+    Usuario usuario;
 
 
 }

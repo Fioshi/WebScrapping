@@ -8,6 +8,7 @@ import com.heinz.heinz.model.scraper.Analise;
 import com.heinz.heinz.model.scraper.Produtos;
 import com.heinz.heinz.model.scraper.ScaperDTODetalhamento;
 import com.heinz.heinz.model.scraper.ScraperDTO;
+import com.heinz.heinz.model.usuario.Sexo;
 import com.heinz.heinz.model.usuario.Usuario;
 import com.heinz.heinz.model.usuario.UsuarioRepository;
 import jakarta.validation.Valid;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,6 +38,9 @@ public class WebScrapperController {
 
     @Autowired
     FeedbackRepository feedbackRepository;
+
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     @PostMapping
     @Transactional
@@ -62,21 +67,25 @@ public class WebScrapperController {
             String text = spanText.get(i).text();
             String title = spanTitle.get(i).text();
 
+            Usuario webScraperUser = new Usuario("webScraper","web@web.com", Sexo.MASCULINO, LocalDate.now());
+
+            usuarioRepository.save(webScraperUser);
+
             Analise analise = null;
 
             if (nomeAux.contains(Produtos.KETCHUP.name().toLowerCase())) {
                 var produto = produtoRepository.getReferenceNome(Produtos.KETCHUP.name().toLowerCase());
-                analise = new Analise(text, title, Produtos.KETCHUP.name().toLowerCase(), produto);
+                analise = new Analise(text, title, Produtos.KETCHUP.name().toLowerCase(), produto, webScraperUser);
             }
 
            if (nomeAux.contains(Produtos.MOSTARDA.name().toLowerCase())) {
                var produto = produtoRepository.getReferenceNome(Produtos.MOSTARDA.name().toLowerCase());
-               analise = new Analise(text, title, Produtos.MOSTARDA.name().toLowerCase(), produto);
+               analise = new Analise(text, title, Produtos.MOSTARDA.name().toLowerCase(), produto, webScraperUser);
            }
 
             if (nomeAux.contains(Produtos.MAIONESE.name().toLowerCase())) {
                 var produto = produtoRepository.getReferenceNome(Produtos.MAIONESE.name().toLowerCase());
-                analise = new Analise(text, title, Produtos.MAIONESE.name().toLowerCase(), produto);
+                analise = new Analise(text, title, Produtos.MAIONESE.name().toLowerCase(), produto, webScraperUser);
             }
 
             feedbackRepository.save(new Feedback(analise));
